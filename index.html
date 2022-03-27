@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jim's Music player</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script>
+        var run = false;
+
+        var change = function () {
+                    if(!run){
+                        $('#play').css("background-image","url(./pic/stop.jpg)");
+                        document.getElementById("mymusic").play();
+                        run = true;
+                    }
+                    else{
+                        $('#play').css("background-image","url(./pic/play.jpg)");
+                        document.getElementById("mymusic").pause();
+                        run = false;
+                    }
+                }
+
+        var changetime = function (){
+            var x = document.getElementById("time-bar").value;
+            document.getElementById("mymusic").currentTime =268*(x/100);
+            document.getElementById("mymusic").play(); 
+            $('#play').css("background-image","url(./pic/stop.jpg)");
+            run = true;          
+        }
+
+        function ShowTime(){
+            　var d=new Date();
+            　var h=d.getHours();
+            　var m=d.getMinutes();
+              var s=d.getSeconds();　
+        　    document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+              var x = document.getElementById("mymusic").currentTime;
+              document.getElementById("time-bar").value = (x/268)*100;
+        　    setTimeout(()=>ShowTime(),1000);
+        }
+    </script>
+
+    <!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+</head>
+<body onload="ShowTime()">
+    <audio id="mymusic"  >
+        <source  src="./music/danger.mp3" type="audio/mp3"></audio>
+    <div id="container">
+        <div id="box">
+
+            <div id="top-bar">
+                <div class="circle1"></div>
+                <div class="circle1"></div>
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle2"></div>
+                <div id="time">12:04</div>
+                <div id="battery1">
+                    <div id="battery2"></div>
+                </div>
+            </div>
+
+            <div id="mid">
+                <div id="music1">
+                    <div id="music2"></div>
+                </div>
+            </div>
+
+            <input type="range" id="time-bar" min="1" max="100" value="1" onchange="changetime();">
+
+            <div id="bot">
+                <div id="bot1">
+                    <button id="left"></button>
+                    <button type="button" id="play" onclick="change();" style="cursor: pointer;" ></button>
+                    <button id="right"></button>
+                </div>
+            </div>
+            <div></div>
+
+        </div>
+    </div>
+</body>
+</html>
