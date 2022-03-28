@@ -3,4 +3,4 @@
 
 ## Main function
 * Support `play music` 、 `stop music` and `draggable time bar`.
-* `Display current time`.
+* Can `Display current time`.
