@@ -3,5 +3,5 @@
 
 ## Main function
 * Can **play music** and **stop music**.
-* Can drag the **time bar** to the specific timestamp.
+* Can drag **time bar** to the specific timestamp.
 * **Display current time**.
