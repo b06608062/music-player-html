@@ -10,20 +10,20 @@
     <script>
         var run = false;
 
-        var change = function () {
-                    if(!run){
+        var change = function() {
+                    if (!run) {
                         $('#play').css("background-image", "url(./pic/stop.jpg)");
                         document.getElementById("mymusic").play();
                         run = true;
                     }
-                    else{
+                    else {
                         $('#play').css("background-image", "url(./pic/play.jpg)");
                         document.getElementById("mymusic").pause();
                         run = false;
                     }
-                }
+        }
 
-        var changetime = function (){
+        var changetime = function() {
             var x = document.getElementById("time-bar").value;
             document.getElementById("mymusic").currentTime = 268 * x / 100;
             document.getElementById("mymusic").play(); 
@@ -31,7 +31,7 @@
             run = true;          
         }
 
-        function ShowTime(){
+        function ShowTime() {
             var d = new Date();
             var h = d.getHours();
             var m = d.getMinutes();
