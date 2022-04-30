@@ -10,7 +10,7 @@
     <script>
         var run = false;
 
-        var change = function() {
+        var play = function() {
                     if (!run) {
                         $('#play').css("background-image", "url(./pic/stop.jpg)");
                         document.getElementById("mymusic").play();
@@ -78,7 +78,7 @@
             <div id="bot">
                 <div id="bot1">
                     <button id="left"></button>
-                    <button type="button" id="play" onclick="change()" style="cursor: pointer" ></button>
+                    <button type="button" id="play" onclick="play()" style="cursor: pointer" ></button>
                     <button id="right"></button>
                 </div>
             </div>
